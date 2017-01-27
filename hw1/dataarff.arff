@@ -1,0 +1,33 @@
+@relation datacsv
+
+@attribute Size {Large,Medium,Small}
+@attribute Occupied {High,Moderate,Low}
+@attribute Price {' Expensive',' Normal',' Cheap'}
+@attribute Music {' Loud',' Quiet'}
+@attribute Location {' Talpiot',' City-Center',' German-Colony',' Ein-Karem',' Mahane-Yehuda'}
+@attribute VIP {' No',' Yes'}
+@attribute FavoriteBeer {' No',' Yes'}
+@attribute Enjoy {' No',' Yes'}
+
+@data
+Large,High,' Expensive',' Loud',' Talpiot',' No',' No',' No'
+Large,High,' Expensive',' Loud',' City-Center',' Yes',' No',' Yes'
+Large,High,' Cheap',' Loud',' City-Center',' No',' Yes',' Yes'
+Medium,High,' Expensive',' Loud',' City-Center',' Yes',' Yes',' Yes'
+Medium,High,' Normal',' Loud',' Mahane-Yehuda',' Yes',' Yes',' Yes'
+Small,High,' Normal',' Quiet',' German-Colony',' No',' No',' No'
+Large,Moderate,' Normal',' Quiet',' City-Center',' No',' Yes',' Yes'
+Large,Moderate,' Expensive',' Quiet',' German-Colony',' Yes',' Yes',' Yes'
+Large,Moderate,' Cheap',' Loud',' Talpiot',' No',' Yes',' No'
+Large,Moderate,' Normal',' Loud',' Ein-Karem',' No',' Yes',' Yes'
+Medium,Moderate,' Expensive',' Quiet',' German-Colony',' No',' No',' No'
+Medium,Moderate,' Expensive',' Quiet',' Mahane-Yehuda',' No',' Yes',' Yes'
+Medium,Moderate,' Normal',' Quiet',' Talpiot',' No',' No',' Yes'
+Small,Moderate,' Normal',' Quiet',' Ein-Karem',' No',' No',' Yes'
+Small,Moderate,' Cheap',' Loud',' Mahane-Yehuda',' No',' No',' Yes'
+Large,Low,' Normal',' Quiet',' Ein-Karem',' No',' No',' No'
+Large,Low,' Cheap',' Quiet',' Talpiot',' Yes',' Yes',' No'
+Medium,Low,' Cheap',' Quiet',' City-Center',' No',' No',' No'
+Medium,Low,' Expensive',' Loud',' Mahane-Yehuda',' No',' No',' No'
+Medium,Low,' Normal',' Quiet',' City-Center',' No',' No',' Yes'
+Small,Low,' Normal',' Quiet',' City-Center',' No',' No',' No'
