@@ -1,5 +1,5 @@
 __author__ = 'paul'
-from data import *
+from nightoutdata import *
 
 def parsefile(filepath):
     result = []

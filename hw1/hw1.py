@@ -1,7 +1,8 @@
 __author__ = 'paul'
-import parser
+
+import nightoutparser
 import id3
-import data
+import nightoutdata
 
 def visit(currentlevel):
     if(len(currentlevel)==0): return
@@ -17,7 +18,7 @@ def visit(currentlevel):
 def check(rows, root):
     countCorrect = 0
     for row in rows:
-        answer = row.attr[data.ENJOY]
+        answer = row.attr[nightoutdata.ENJOY]
         fromTree = id3.getDecision(row, root)
         if(answer == fromTree):
             countCorrect+=1
@@ -25,11 +26,11 @@ def check(rows, root):
     print('%f correct' % percentage)
 
 def constructQuery():
-    return data.Row('Large', 'Moderate', 'Cheap', 'Loud', 'City-Center', 'No', 'No', "")
+    return nightoutdata.Row('Large', 'Moderate', 'Cheap', 'Loud', 'City-Center', 'No', 'No', "")
 
-OUTCOME = data.ENJOY
-rows = parser.parsefile("dt-data.txt")
-node = id3.id3(rows, data.allnontargetattributes, 'Enjoy')
+OUTCOME = nightoutdata.ENJOY
+rows = nightoutparser.parsefile("dt-data.txt")
+node = id3.id3(rows, nightoutdata.allnontargetattributes, 'Enjoy')
 visit([node])
 check(rows, node)
 queryrow = constructQuery()
