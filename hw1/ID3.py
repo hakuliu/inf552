@@ -126,3 +126,24 @@ def getDecision(row, root):
     tobranch = row.attr[root.name]
     index = nightoutdata.attributes[root.name].index(tobranch)
     return getDecision(row, root.branches[index])
+
+def visit(currentlevel):
+    if(len(currentlevel)==0): return
+    str = ''
+    nextlevel = []
+    for node in currentlevel:
+        str += node.name + ','
+        for branch in node.branches:
+            nextlevel.append(branch)
+    print(str)
+    visit(nextlevel)
+
+def check(rows, root):
+    countCorrect = 0
+    for row in rows:
+        answer = row.attr[nightoutdata.ENJOY]
+        fromTree = getDecision(row, root)
+        if(answer == fromTree):
+            countCorrect+=1
+    percentage = float(countCorrect) / len(rows)
+    print('%f correct' % percentage)
