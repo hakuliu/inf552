@@ -1,5 +1,5 @@
 __author__ = 'paul'
-import data
+import nightoutdata
 import  numpy
 import math
 
@@ -36,7 +36,7 @@ def id3(rows, attributes, target):
     maxattr = attributes[maxindex]
     node = id3node(maxattr)
     newattributes = getNewAttributesCopy(attributes, maxattr)
-    for i in range(len(data.attributes[maxattr])):
+    for i in range(len(nightoutdata.attributes[maxattr])):
         node.branches.append(id3(maxsplit[i], newattributes, target))
     return node
 
@@ -60,19 +60,19 @@ def getInfoGain(rows, attribute, target, currentEntropy):
 
 def splitData(rows, attribute):
     result = []
-    for i in range(len(data.attributes[attribute])):
+    for i in range(len(nightoutdata.attributes[attribute])):
         result.append([])
     for row in rows:
-        index = data.attributes[attribute].index(row.attr[attribute])
+        index = nightoutdata.attributes[attribute].index(row.attr[attribute])
         result[index].append(row)
     return result
 
 def getMostTarget(rows, target):
-    sizeTarget = len(data.attributes[target])
+    sizeTarget = len(nightoutdata.attributes[target])
     results = numpy.zeros(sizeTarget).astype(int)
     for row in rows:
         outcome = row.attr[target]
-        index = data.attributes[target].index(outcome)
+        index = nightoutdata.attributes[target].index(outcome)
         results[index]+=1
     cmax = 0
     cindex = -1
@@ -81,15 +81,15 @@ def getMostTarget(rows, target):
         if(result > cmax):
             cmax = result
             cindex = i
-    return data.attributes[target][cindex]
+    return nightoutdata.attributes[target][cindex]
 
 def getEntropy(rows, target):
-    sizeOutcome = len(data.attributes[target])
+    sizeOutcome = len(nightoutdata.attributes[target])
     results = numpy.zeros(sizeOutcome).astype(int)
 
     for row in rows:
         outcome = row.attr[target]
-        outindex = data.attributes[target].index(outcome)
+        outindex = nightoutdata.attributes[target].index(outcome)
         results[outindex]+=1
     return entropyOfSums(results,len(rows))
 
@@ -124,5 +124,26 @@ def getDecision(row, root):
     if(root.isDecision):
         return root.name
     tobranch = row.attr[root.name]
-    index = data.attributes[root.name].index(tobranch)
+    index = nightoutdata.attributes[root.name].index(tobranch)
     return getDecision(row, root.branches[index])
+
+def visit(currentlevel):
+    if(len(currentlevel)==0): return
+    str = ''
+    nextlevel = []
+    for node in currentlevel:
+        str += node.name + ','
+        for branch in node.branches:
+            nextlevel.append(branch)
+    print(str)
+    visit(nextlevel)
+
+def check(rows, root):
+    countCorrect = 0
+    for row in rows:
+        answer = row.attr[nightoutdata.ENJOY]
+        fromTree = getDecision(row, root)
+        if(answer == fromTree):
+            countCorrect+=1
+    percentage = float(countCorrect) / len(rows)
+    print('%f correct' % percentage)
