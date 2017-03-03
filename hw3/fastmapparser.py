@@ -16,3 +16,9 @@ def parsefile(filepath):
 def parseline(line):
     thesplit = line.split('\t')
     return thesplit
+
+def parsewords(filepath):
+    result = []
+    for line in open(filepath, 'r'):
+        result.append(line)
+    return result
