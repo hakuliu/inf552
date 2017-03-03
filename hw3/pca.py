@@ -14,13 +14,13 @@ def getDimensions(d, pc):
     if d <= len(pc):
         result = numpy.zeros((d, len(pc[0])))
         for i in range(d):
-            result[i] = pc[i,:]
+            result[i] = pc[:,i]
         return result
     else: return None
 
 def sortEigs(vals, vecs):
     result = numpy.zeros((len(vecs), len(vecs[0])))
-    #selection sort because vals is short
+    #selection sort because vals is short for now so it should be fast enough
     lastMax = float("inf")
     for i in range(len(vals)):
         currentMax = float("-inf")
