@@ -86,12 +86,13 @@ class NNTester:
     def __init__(self, network, testset):
         self.set = testset
         self.network = network
+        self.error = []
 
     def test(self):
-        totalerror = 0
+        self.error = []
         for testrow in self.set:
-            totalerror += self.getSingleRowError(testrow)
-        return totalerror
+            self.error.append(self.getSingleRowError(testrow))
+        return self.error
 
     def getSingleRowError(self, row):
         img = row.inrow
@@ -103,7 +104,15 @@ class NNTester:
         self.network.feedforward()
         x = self.network.outnodes[0].x
         diff = e_out - x
-        return diff ** 2
+        return abs(diff)
+
+    def getMeanAbsError(self):
+        return sum(self.error) / float(len(self.set))
+
+    def getRootMeanSquaredError(self):
+        squared = [i**2 for i in self.error]
+        s = sum(squared) / float(len(self.set))
+        return math.sqrt(s)
 
 class TrainingRow:
     def __init__(self, inputrow, outputval):

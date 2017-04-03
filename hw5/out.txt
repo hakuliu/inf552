@@ -1,0 +1,41 @@
+training set of 184 loaded.
+testing set of 83 loaded.
+constructing layer of 100 nodes
+constructing layer of 1 nodes
+network constructed
+testing before training...
+absolute error:
+36.9515055079
+mean absolute error:
+0.44519886154
+root mean square error:
+0.540968490096
+beginning training...
+training epoch 0
+training epoch 1
+training epoch 2
+training epoch 3
+training epoch 4
+training epoch 5
+training epoch 6
+training epoch 7
+training epoch 8
+training epoch 9
+training epoch 10
+training epoch 11
+training epoch 12
+training epoch 13
+training epoch 14
+training epoch 15
+training epoch 16
+training epoch 17
+training epoch 18
+training epoch 19
+training complete.
+testing after training...
+absolute error:
+14.5728799708
+mean absolute error:
+0.175576867118
+root mean square error:
+0.324599039924
