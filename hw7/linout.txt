@@ -1,0 +1,62 @@
+=== Run information ===
+
+Scheme:       weka.classifiers.functions.SMO -C 1.0 -L 0.001 -P 1.0E-12 -N 2 -V -1 -W 1 -K "weka.classifiers.functions.supportVector.PolyKernel -E 1.0 -L -C 250007" -calibrator "weka.classifiers.functions.SMO -C 1.0 -L 0.001 -P 1.0E-12 -N 0 -V -1 -W 1 -K \"weka.classifiers.functions.supportVector.PolyKernel -E 1.0 -C 250007\" -calibrator \"weka.classifiers.functions.Logistic -R 1.0E-8 -M -1 -num-decimal-places 4\"" -num-decimal-places 4 -batch-size 10
+Relation:     linsep
+Instances:    100
+Attributes:   3
+              X1
+              X2
+              Y
+Test mode:    evaluate on training data
+
+=== Classifier model (full training set) ===
+
+SMO
+
+Kernel used:
+  Linear Kernel with lower order: K(x,y) = <x,y> + 1
+
+Classifier for classes: yes, no
+
+BinarySMO
+
+Machine linear: showing attribute weights, not support vectors.
+
+        -3.6032 * X1
+ +       2.0325 * X2
+ -       0.2177
+
+Number of kernel evaluations: 265 (62.034% cached)
+
+
+
+Time taken to build model: 0 seconds
+
+=== Evaluation on training set ===
+
+Time taken to test model on training data: 0 seconds
+
+=== Summary ===
+
+Correctly Classified Instances         100              100      %
+Incorrectly Classified Instances         0                0      %
+Kappa statistic                          1
+Mean absolute error                      0
+Root mean squared error                  0
+Relative absolute error                  0      %
+Root relative squared error              0      %
+Total Number of Instances              100
+
+=== Detailed Accuracy By Class ===
+
+                 TP Rate  FP Rate  Precision  Recall   F-Measure  MCC      ROC Area  PRC Area  Class
+                 1.000    0.000    1.000      1.000    1.000      1.000    1.000     1.000     yes
+                 1.000    0.000    1.000      1.000    1.000      1.000    1.000     1.000     no
+Weighted Avg.    1.000    0.000    1.000      1.000    1.000      1.000    1.000     1.000
+
+=== Confusion Matrix ===
+
+  a  b   <-- classified as
+ 79  0 |  a = yes
+  0 21 |  b = no
+

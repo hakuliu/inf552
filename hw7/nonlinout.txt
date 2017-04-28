@@ -1,0 +1,100 @@
+=== Run information ===
+
+Scheme:       weka.classifiers.functions.SMO -C 1.0 -L 0.001 -P 1.0E-12 -N 2 -V -1 -W 1 -K "weka.classifiers.functions.supportVector.RBFKernel -G 0.01 -C 250007" -calibrator "weka.classifiers.functions.SMO -C 1.0 -L 0.001 -P 1.0E-12 -N 0 -V -1 -W 1 -K \"weka.classifiers.functions.supportVector.PolyKernel -E 1.0 -C 250007\" -calibrator \"weka.classifiers.functions.Logistic -R 1.0E-8 -M -1 -num-decimal-places 4\"" -num-decimal-places 4 -batch-size 10
+Relation:     nonlinsep
+Instances:    100
+Attributes:   3
+              X1
+              X2
+              Y
+Test mode:    evaluate on training data
+
+=== Classifier model (full training set) ===
+
+SMO
+
+Kernel used:
+  RBF kernel: K(x,y) = e^-(0.01* <x-y,x-y>^2)
+
+Classifier for classes: yes, no
+
+BinarySMO
+
+ -       1      * <2.917223 -12.27214 > * X]
+ -       1      * <-11.646213 -0.872177 > * X]
+ -       0.5775 * <10.245927 7.953735 > * X]
+ -       1      * <-10.260969 2.073918 > * X]
+ +       0.0082 * <1.867176 7.297274 > * X]
+ -       1      * <12.747809 0.19913 > * X]
+ +       1      * <0.449463 8.412922 > * X]
+ +       1      * <4.2729 8.670794 > * X]
+ +       1      * <-9.537543 -0.518958 > * X]
+ -       1      * <1.664048 12.685628 > * X]
+ -       1      * <11.758809 -9.858904 > * X]
+ -       0.0098 * <-8.509616 18.41044 > * X]
+ -       1      * <9.679177 4.375954 > * X]
+ +       1      * <-9.467609 2.361395 > * X]
+ -       1      * <-1.089338 -14.105625 > * X]
+ -       0.0877 * <21.926539 15.531376 > * X]
+ -       1      * <1.339331 -10.290988 > * X]
+ +       1      * <6.992497 -6.411431 > * X]
+ -       1      * <-10.028333 11.093545 > * X]
+ +       0.3909 * <-2.529227 -8.292825 > * X]
+ +       1      * <-8.474228 5.156216 > * X]
+ -       0.1353 * <10.421632 23.452792 > * X]
+ -       0.1695 * <-23.039619 -24.179159 > * X]
+ +       0.5392 * <-6.800023 -7.023843 > * X]
+ -       0.0298 * <24.938342 -1.511892 > * X]
+ -       0.6532 * <-15.647197 3.320391 > * X]
+ -       0.2951 * <-14.231219 8.576612 > * X]
+ +       1      * <6.366628 -6.497129 > * X]
+ +       1      * <0.201628 -8.812601 > * X]
+ -       0.1428 * <-13.378897 -18.962764 > * X]
+ +       1      * <-2.747155 -8.472449 > * X]
+ -       0.1485 * <22.193846 -20.815995 > * X]
+ +       1      * <-6.906476 7.148338 > * X]
+ -       0.0509 * <-6.417669 -16.570625 > * X]
+ +       0.6803 * <7.380129 -1.360773 > * X]
+ -       0.1451 * <-22.969014 -12.670105 > * X]
+ -       0.1897 * <-24.682419 21.165945 > * X]
+ +       1      * <9.901435 -0.314831 > * X]
+ +       0.0844 * <-4.983494 8.318166 > * X]
+ -       0.0679 * <11.79487 -11.392461 > * X]
+ -       0.7466
+
+Number of support vectors: 40
+
+Number of kernel evaluations: 4258 (89.377% cached)
+
+
+
+Time taken to build model: 0.01 seconds
+
+=== Evaluation on training set ===
+
+Time taken to test model on training data: 0 seconds
+
+=== Summary ===
+
+Correctly Classified Instances          97               97      %
+Incorrectly Classified Instances         3                3      %
+Kappa statistic                          0.94
+Mean absolute error                      0.03
+Root mean squared error                  0.1732
+Relative absolute error                  6      %
+Root relative squared error             34.641  %
+Total Number of Instances              100
+
+=== Detailed Accuracy By Class ===
+
+                 TP Rate  FP Rate  Precision  Recall   F-Measure  MCC      ROC Area  PRC Area  Class
+                 0.940    0.000    1.000      0.940    0.969      0.942    0.970     0.970     yes
+                 1.000    0.060    0.943      1.000    0.971      0.942    0.970     0.943     no
+Weighted Avg.    0.970    0.030    0.972      0.970    0.970      0.942    0.970     0.957
+
+=== Confusion Matrix ===
+
+  a  b   <-- classified as
+ 47  3 |  a = yes
+  0 50 |  b = no
+
